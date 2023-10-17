@@ -1,4 +1,6 @@
-![GitHub top language](https://img.shields.io/github/languages/top/JoaoSBarbosa/[wolflearnings](https://github.com/JoaoSBarbosa/wolflearnings))
+![GitHub language count](https://img.shields.io/github/languages/count/JoaoSBarbosa/wolflearnings) ![GitHub top language](https://img.shields.io/github/languages/top/JoaoSBarbosa/wolflearnings)
+
+
 
 # Wolf Learnings - Plataforma de Ensino 👨🏿‍🎓🐺
 
