@@ -1,4 +1,4 @@
-package com.devsuperior.dslearnbds;
+package com.devsuperior.wolflearnings;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
