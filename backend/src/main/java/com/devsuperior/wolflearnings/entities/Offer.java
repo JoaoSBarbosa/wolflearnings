@@ -3,6 +3,8 @@ package com.devsuperior.wolflearnings.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +20,10 @@ public class Offer implements Serializable {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+
+
+    @OneToMany(mappedBy = "offer")
+   private List<Resource> resources = new ArrayList<>();
     public Offer(){}
 
     public Offer(Long id, String edition, Instant startMoment, Instant endMoment, Course course) {
@@ -67,6 +73,11 @@ public class Offer implements Serializable {
     public void setCourse(Course course) {
         this.course = course;
     }
+
+    public List<Resource> getResources() {
+        return resources;
+    }
+
 
     @Override
     public boolean equals(Object o) {

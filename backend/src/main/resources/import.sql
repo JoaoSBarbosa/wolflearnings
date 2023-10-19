@@ -42,3 +42,21 @@ INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES('Atualiz
 -- Inserir notificações para Carlos
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES('Nova mensagem', '2023-10-15T14:30:00Z', false, '/messages/2', 4);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES('Feedback recebido', '2023-10-16T10:45:00Z', false, '/tasks/12/feedback', 4);
+
+--OFERTAS--
+
+-- Recursos para o curso "HTML e CSS Completo"
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Introdução ao HTML', 'Aprenda os conceitos básicos do HTML.', 1, 'https://i.ytimg.com/vi/r01izWfa8wM/maxresdefault.jpg', 0, null, 1);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('CSS Avançado', 'Estude técnicas avançadas de CSS.', 2, 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2022/08/seletores_avancados_do_css.png', 0, null, 1);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Projetos Práticos', 'Desenvolva projetos práticos utilizando HTML e CSS.', 3, 'https://example.com/practical_projects.jpg', 1, null, 1);
+
+-- Recursos para o curso "Javascript Básico ao Avançado"
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Fundamentos do JavaScript', 'Aprenda os fundamentos do JavaScript.', 1, 'https://t.ctcdn.com.br/Kf8I0ycbrE9CuHxYzH9PUcaMLio=/640x360/smart/i261792.png', 0, null, 2);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Programação Orientada a Objetos', 'Estude POO em JavaScript.', 2, 'https://programacao-orientada-a-objetos.online/wp-content/uploads/2021/10/Poo.png', 0, null, 2);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Projetos Avançados', 'Desenvolva projetos avançados utilizando JavaScript.', 3, 'https://example.com/advanced_projects.jpg', 1, null, 2);
+
+-- Recursos para o curso "Java Spring"
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Introdução ao Spring Boot', 'Inicie com o Spring Boot.', 1, 'https://example.com/spring_intro.jpg', 0, null, 3);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Segurança no Spring', 'Aprenda sobre segurança no Spring.', 2, 'https://example.com/spring_security.jpg', 0, null, 3);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Desenvolvimento de Aplicações Web', 'Desenvolva aplicações web com Spring.', 3, 'https://example.com/spring_web.jpg', 1, null, 3);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Forúm', 'Tire suas dúvidas', 4, 'https://example.com/spring_web.jpg', 2, null, 3);
