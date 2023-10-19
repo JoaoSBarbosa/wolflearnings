@@ -60,3 +60,20 @@ INSERT INTO tb_resource (title, description, position, img_Uri, type, external_L
 INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Segurança no Spring', 'Aprenda sobre segurança no Spring.', 2, 'https://example.com/spring_security.jpg', 0, null, 3);
 INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Desenvolvimento de Aplicações Web', 'Desenvolva aplicações web com Spring.', 3, 'https://example.com/spring_web.jpg', 1, null, 3);
 INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Forúm', 'Tire suas dúvidas', 4, 'https://example.com/spring_web.jpg', 2, null, 3);
+
+
+-- Seções para o recurso "Introdução ao HTML"
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Aula 1', 'Primeira aula sobre HTML.', 1, 'https://example.com/aula1.jpg', 1, null);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Aula 2', 'Segunda aula sobre HTML.', 2, 'https://example.com/aula2.jpg', 1, 1);
+
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Exercício 1', 'Exercício prático sobre HTML.', 3, 'https://example.com/exercicio1.jpg', 1, 2);
+
+-- Seções para o recurso "CSS Avançado"
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Aula 1', 'Primeira aula sobre CSS avançado.', 1, 'https://example.com/aula1_css.jpg', 2, null);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Aula 2', 'Segunda aula sobre CSS avançado.', 2, 'https://example.com/aula2_css.jpg', 2, 4);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Exercício 1', 'Exercício prático sobre CSS avançado.', 3, 'https://example.com/exercicio1_css.jpg', 2, 5);
+
+-- Seções para o recurso "Projetos Práticos"
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Projeto 1', 'Primeiro projeto prático com HTML e CSS.', 1, 'https://example.com/projeto1.jpg', 3, null);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Projeto 2', 'Segundo projeto prático com HTML e CSS.', 2, 'https://example.com/projeto2.jpg', 3, 7);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Projeto 3', 'Terceiro projeto prático com HTML e CSS.', 3, 'https://example.com/projeto3.jpg', 3, 8);
