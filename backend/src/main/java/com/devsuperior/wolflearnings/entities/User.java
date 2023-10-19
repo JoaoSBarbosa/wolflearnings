@@ -5,9 +5,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_user")
@@ -25,6 +23,10 @@ public class User implements Serializable {
     joinColumns = @JoinColumn(name = "user_id"),
     inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+
+   @OneToMany(mappedBy = "user")
+    private List<Notification> notifications = new ArrayList<>();
     public User(){}
 
     public User(long id, String name, String email, String password, Set<Role> roles) {
