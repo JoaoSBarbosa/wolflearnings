@@ -9,13 +9,10 @@ INSERT INTO tb_role (authority) VALUES ('ROLE_INSTRUCTOR');
 INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
 
 INSERT INTO tb_user_role(user_id,role_id) VALUES (1,1);
-
 INSERT INTO tb_user_role(user_id,role_id) VALUES (2,1);
 INSERT INTO tb_user_role(user_id,role_id) VALUES (2,2);
 INSERT INTO tb_user_role(user_id,role_id) VALUES (2,3);
-
 INSERT INTO tb_user_role(user_id,role_id) VALUES (3,3);
-
 INSERT INTO tb_user_role(user_id,role_id) VALUES (4,2);
 INSERT INTO tb_user_role(user_id,role_id) VALUES (4,3);
 
@@ -77,3 +74,14 @@ INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prer
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Projeto 1', 'Primeiro projeto prático com HTML e CSS.', 1, 'https://example.com/projeto1.jpg', 3, null);
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Projeto 2', 'Segundo projeto prático com HTML e CSS.', 2, 'https://example.com/projeto2.jpg', 3, 7);
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Projeto 3', 'Terceiro projeto prático com HTML e CSS.', 3, 'https://example.com/projeto3.jpg', 3, 8);
+
+
+-- Matrículas para o curso "HTML e CSS Completo"
+INSERT INTO tb_enrollment(user_id, offer_id, enroll_moment, refund_Moment, available, only_update)VALUES (1, 1, TIMESTAMP WITH TIME ZONE '2023-10-19T12:00:00Z',null, true, false);
+INSERT INTO tb_enrollment(user_id, offer_id, enroll_moment, refund_Moment, available, only_update)VALUES (2, 1, TIMESTAMP WITH TIME ZONE '2023-10-24T12:30:00Z',null, true, false);
+
+-- Matrículas para o curso "Javascript Básico ao Avançado"
+INSERT INTO tb_enrollment(user_id, offer_id, enroll_moment,refund_Moment, available, only_update)VALUES (2, 2, TIMESTAMP WITH TIME ZONE '2024-01-11T04:00:00Z',null, true, false);
+
+-- Matrículas para o curso "Java Spring"
+INSERT INTO tb_enrollment(user_id, offer_id, enroll_moment,refund_Moment, available, only_update)VALUES (2, 3, TIMESTAMP WITH TIME ZONE '2023-12-25T04:30:00Z',null, true, false);
