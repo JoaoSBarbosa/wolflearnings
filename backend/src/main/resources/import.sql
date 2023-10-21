@@ -44,7 +44,7 @@ INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES('Feedbac
 
 -- Recursos para o curso "HTML e CSS Completo"
 INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Introdução ao HTML', 'Aprenda os conceitos básicos do HTML.', 1, 'https://i.ytimg.com/vi/r01izWfa8wM/maxresdefault.jpg', 0, null, 1);
-INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('CSS Avançado', 'Estude técnicas avançadas de CSS.', 2, 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2022/08/seletores_avancados_do_css.png', 0, null, 1);
+INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('CSS Básico ao Avançado', 'Estude técnicas avançadas de CSS.', 2, 'https://dkrn4sk0rn31v.cloudfront.net/uploads/2022/08/seletores_avancados_do_css.png', 0, null, 1);
 INSERT INTO tb_resource (title, description, position, img_Uri, type, external_Link, offer_id)VALUES ('Projetos Práticos', 'Desenvolva projetos práticos utilizando HTML e CSS.', 3, 'https://example.com/practical_projects.jpg', 1, null, 1);
 
 -- Recursos para o curso "Javascript Básico ao Avançado"
@@ -60,15 +60,15 @@ INSERT INTO tb_resource (title, description, position, img_Uri, type, external_L
 
 
 -- Seções para o recurso "Introdução ao HTML"
-INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Aula 1', 'Primeira aula sobre HTML.', 1, 'https://example.com/aula1.jpg', 1, null);
-INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Aula 2', 'Segunda aula sobre HTML.', 2, 'https://example.com/aula2.jpg', 1, 1);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Capítulo 1', 'HTML Básico.', 1, 'https://example.com/aula1.jpg', 1, null);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Capítulo 2', 'HTML Intermediário.', 2, 'https://example.com/aula2.jpg', 1, 1);
 
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Exercício 1', 'Exercício prático sobre HTML.', 3, 'https://example.com/exercicio1.jpg', 1, 2);
 
 -- Seções para o recurso "CSS Avançado"
-INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Aula 1', 'Primeira aula sobre CSS avançado.', 1, 'https://example.com/aula1_css.jpg', 2, null);
-INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Aula 2', 'Segunda aula sobre CSS avançado.', 2, 'https://example.com/aula2_css.jpg', 2, 4);
-INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Exercício 1', 'Exercício prático sobre CSS avançado.', 3, 'https://example.com/exercicio1_css.jpg', 2, 5);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Capítulo 1', 'CSS Básico.', 1, 'https://example.com/aula1_css.jpg', 2, null);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Capítulo 2', 'CSS Intermediário e Avançado.', 2, 'https://example.com/aula2_css.jpg', 2, 4);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Exercício 1', 'Exercício prático sobre CSS.', 3, 'https://example.com/exercicio1_css.jpg', 2, 5);
 
 -- Seções para o recurso "Projetos Práticos"
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id)VALUES ('Projeto 1', 'Primeiro projeto prático com HTML e CSS.', 1, 'https://example.com/projeto1.jpg', 3, null);
@@ -85,3 +85,49 @@ INSERT INTO tb_enrollment(user_id, offer_id, enroll_moment,refund_Moment, availa
 
 -- Matrículas para o curso "Java Spring"
 INSERT INTO tb_enrollment(user_id, offer_id, enroll_moment,refund_Moment, available, only_update)VALUES (2, 3, TIMESTAMP WITH TIME ZONE '2023-12-25T04:30:00Z',null, true, false);
+
+-- Seed Lesson 1 e sua content e Tasks
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 1 de HTML', 1, 1); -- Exemplo de aula de HTML na seção 1
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (1, 'Este é um conteúdo introdutório sobre HTML. Vamos explorar os principais conceitos e estruturas.', 'https://exemplo.com/video1');
+INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (1,'Esta tarefa envolve a criação de uma página web básica utilizando HTML. Serão fornecidas instruções detalhadas.', 10, 5, 1.5, TIMESTAMP WITH TIME ZONE '2023-10-20T12:00:00Z');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 2 de HTML', 2, 1); -- Exemplo de aula de HTML na seção 1
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (2,  'Agora que você já tem uma noção básica de HTML, vamos nos aprofundar em tópicos mais avançados.', 'https://exemplo.com/video2');
+INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (2,'Nesta tarefa, você terá que implementar um formulário de contato usando HTML. Siga as instruções cuidadosamente.', 8, 4, 1.2, TIMESTAMP WITH TIME ZONE '2023-10-22T14:00:00Z');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 1 de CSS', 1, 2); -- Exemplo de aula de CSS na seção 2
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (3, 'Neste conteúdo, vamos mergulhar no mundo do CSS e aprender a estilizar nossas páginas.', 'https://exemplo.com/video3');
+INSERT INTO tb_task (id,description, question_count, approval_count, weight, due_date) VALUES (3,'Você receberá um design de página e terá que implementá-lo usando CSS. Preste atenção aos detalhes.', 12, 6, 1.8, TIMESTAMP WITH TIME ZONE '2023-10-25T10:00:00Z');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 2 de CSS', 2, 2); -- Exemplo de aula de CSS na seção 2
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (4, 'Aqui, vamos abordar técnicas avançadas de CSS, como flexbox e grid layout.', 'https://exemplo.com/video4');
+INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (4,'Nesta tarefa, você terá que criar um layout responsivo para uma aplicação web. Use suas habilidades em CSS.', 9, 4, 1.3, TIMESTAMP WITH TIME ZONE '2023-10-27T16:00:00Z');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 1 de Javascript', 1, 3); -- Exemplo de aula de Javascript na seção 3
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (5,'Vamos iniciar nossa jornada no mundo do Javascript, aprendendo sobre variáveis e estruturas de controle.', 'https://exemplo.com/video5');
+INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (5, 'Esta tarefa envolve a implementação de funcionalidades dinâmicas usando Javascript. Siga as instruções fornecidas.', 15, 7, 2.0, TIMESTAMP WITH TIME ZONE '2023-10-30T09:00:00Z');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 2 de Javascript', 2, 3); -- Exemplo de aula de Javascript na seção 3
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (6, 'Agora, vamos nos aprofundar em tópicos avançados, como funções e objetos.', 'https://exemplo.com/video6');
+INSERT INTO tb_task (id,description, question_count, approval_count, weight, due_date) VALUES (6, 'Nesta tarefa, você terá que desenvolver um jogo simples usando Javascript. Use sua criatividade!', 11, 5, 1.6, TIMESTAMP WITH TIME ZONE '2023-11-02T11:00:00Z');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 1 de Spring', 1, 4); -- Exemplo de aula de Spring na seção 4
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (7, 'Iniciaremos nossa jornada no mundo do Spring, explorando os fundamentos do framework.', 'https://exemplo.com/video7');
+INSERT INTO tb_task (id,description, question_count, approval_count, weight, due_date) VALUES (7, 'Você terá que criar uma aplicação web usando Spring. Siga as instruções para configurar corretamente o projeto.', 14, 6, 1.9, TIMESTAMP WITH TIME ZONE '2023-11-05T13:00:00Z');
+
+INSERT INTO tb_lesson (title, position, section_id) VALUES ('Aula 2 de Spring', 2, 4); -- Exemplo de aula de Spring na seção 4
+INSERT INTO tb_content (id, text_content, video_uri) VALUES (8, 'Aqui, vamos abordar tópicos mais avançados, como segurança e integração com banco de dados.', 'https://exemplo.com/video8');
+INSERT INTO tb_task (id, description, question_count, approval_count, weight, due_date) VALUES (8, 'Nesta tarefa, você terá que implementar autenticação e autorização em uma aplicação Spring.', 13, 6, 1.7, TIMESTAMP WITH TIME ZONE '2023-11-08T15:00:00Z');
+
+
+
+
+
+-- Aula 1 de HTML
+INSERT INTO tb_lessons_done (lesson_id,user_id, offer_id) VALUES (1, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id,user_id, offer_id) VALUES (2, 1, 1);
+INSERT INTO tb_lessons_done (lesson_id,user_id, offer_id) VALUES (3, 1, 1);
+
+
+
