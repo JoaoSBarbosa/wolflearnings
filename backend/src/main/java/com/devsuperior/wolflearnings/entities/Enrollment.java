@@ -27,7 +27,8 @@ public class Enrollment implements Serializable {
     private Set<Lesson> lessonsDone = new HashSet<>();
 
     @OneToMany(mappedBy = "enrollment")
-    private List<Deliver> delivers = new ArrayList<>();
+    private List<Deliver> deliveries = new ArrayList<>();
+
     public Enrollment(){}
 
     public Enrollment(User user, Offer offer, Instant enrollMoment, Instant refundMoment, boolean available, boolean onlyUpdate) {
@@ -37,6 +38,26 @@ public class Enrollment implements Serializable {
         this.refundMoment = refundMoment;
         this.available = available;
         this.onlyUpdate = onlyUpdate;
+    }
+
+    public EnrollmentPK getId() {
+        return id;
+    }
+
+    public void setId(EnrollmentPK id) {
+        this.id = id;
+    }
+
+    public Set<Lesson> getLessonsDone() {
+        return lessonsDone;
+    }
+
+    public List<Deliver> getDeliveries() {
+        return deliveries;
+    }
+
+    public void setDeliveries(List<Deliver> deliveries) {
+        this.deliveries = deliveries;
     }
 
     public User getStudent(){

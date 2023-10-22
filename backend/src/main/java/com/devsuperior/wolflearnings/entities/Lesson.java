@@ -45,6 +45,22 @@ public abstract class Lesson implements Serializable {
         this.section = section;
     }
 
+    public List<Deliver> getDelivers() {
+        return delivers;
+    }
+
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
+    }
+
+    public void setEnrollmentsDone(Set<Enrollment> enrollmentsDone) {
+        this.enrollmentsDone = enrollmentsDone;
+    }
+
     public Set<Enrollment> getEnrollmentsDone() {
         return enrollmentsDone;
     }

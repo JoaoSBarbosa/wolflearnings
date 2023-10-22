@@ -50,7 +50,7 @@ public class Topic implements Serializable {
 
     public Topic(){}
 
-    public Topic(Long id, String title, String body, Instant moment, User author, Lesson lesson, Offer offer, Set<User> likes, Reply answer, List<Reply> replies) {
+    public Topic(Long id, String title, String body, Instant moment, User author, Lesson lesson, Offer offer, Reply answer) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -58,9 +58,7 @@ public class Topic implements Serializable {
         this.author = author;
         this.lesson = lesson;
         this.offer = offer;
-        this.likes = likes;
         this.answer = answer;
-        this.replies = replies;
     }
 
     public Reply getAnswer() {
