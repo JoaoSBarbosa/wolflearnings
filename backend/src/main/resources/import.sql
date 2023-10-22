@@ -143,3 +143,8 @@ INSERT INTO tb_topic_likes(topic_id,user_id)VALUES (1,2);
 INSERT INTO tb_topic_likes(topic_id,user_id)VALUES (2,1);
 INSERT INTO tb_topic_likes(topic_id,user_id)VALUES (1,3);
 
+INSERT INTO tb_reply(body,moment,topic_id,author_id) VALUES ('Tente aperta ALT + F5', TIMESTAMP WITH TIME ZONE '2023-10-22T15:00Z',1,2);
+INSERT INTO tb_reply(body,moment,topic_id,author_id) VALUES ('Deu certo, valeu !', TIMESTAMP WITH TIME ZONE '2023-10-22T17:00Z',1,1);
+
+INSERT INTO tb_reply_likes(reply_id, user_id) VALUES (1,1);
+INSERT INTO tb_reply_likes(reply_id, user_id) VALUES (2,2);

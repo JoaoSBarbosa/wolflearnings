@@ -3,6 +3,7 @@ package com.devsuperior.wolflearnings.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,8 +40,17 @@ public class Topic implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> likes = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "reply_id")
+    private Reply answer;
+
+    @OneToMany(mappedBy = "topic")
+    private List<Reply> replies = new ArrayList<>();
+
+
     public Topic(){}
-    public Topic(Long id, String title, String body, Instant moment, User author, Lesson lesson, Offer offer, Set<User> likes) {
+
+    public Topic(Long id, String title, String body, Instant moment, User author, Lesson lesson, Offer offer, Set<User> likes, Reply answer, List<Reply> replies) {
         this.id = id;
         this.title = title;
         this.body = body;
@@ -49,6 +59,24 @@ public class Topic implements Serializable {
         this.lesson = lesson;
         this.offer = offer;
         this.likes = likes;
+        this.answer = answer;
+        this.replies = replies;
+    }
+
+    public Reply getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Reply answer) {
+        this.answer = answer;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        this.replies = replies;
     }
 
     public Long getId() {
