@@ -131,3 +131,15 @@ INSERT INTO tb_lessons_done (lesson_id,user_id, offer_id) VALUES (10, 1, 1);
 INSERT INTO tb_deliver (uri, moment, status, feedback, correct_Count, user_id, offer_id, lesson_id)VALUES ('https://exemplo.com/entrega1', TIMESTAMP WITH TIME ZONE '2023-11-02T11:00:00Z', 2, 'Bom trabalho!', 10, 1,1,4);
 INSERT INTO tb_deliver (uri, moment, status, feedback, correct_Count,user_id, offer_id, lesson_id)VALUES('https://exemplo.com/entrega2', TIMESTAMP WITH TIME ZONE '2023-11-05T13:00:00Z', 2, 'Bom trabalho!', 9, 1,1,6);
 
+--TOPICS
+INSERT INTO tb_topic(title, body, moment,author_id,offer_id,lesson_id ) VALUES ('Título - Tópico 1','Corpo do tópico 1',  TIMESTAMP WITH TIME ZONE '2023-12-12T13:00:00Z',1,1,1);
+INSERT INTO tb_topic(title, body, moment,author_id,offer_id,lesson_id ) VALUES ('Título - Tópico 2','Corpo do tópico 2',  TIMESTAMP WITH TIME ZONE '2023-12-12T13:00:00Z',2,1,1);
+INSERT INTO tb_topic(title, body, moment,author_id,offer_id,lesson_id) VALUES ('Título - Tópico 3','Corpo do tópico 3',  TIMESTAMP WITH TIME ZONE '2023-12-12T13:00:00Z',2,1,1);
+INSERT INTO tb_topic(title, body, moment,author_id,offer_id,lesson_id ) VALUES ('Título - Tópico 4','Corpo do tópico 4',  TIMESTAMP WITH TIME ZONE '2023-12-12T13:00:00Z',1,1,2);
+INSERT INTO tb_topic(title, body, moment,author_id,offer_id,lesson_id ) VALUES ('Título - Tópico 5','Corpo do tópico 5',  TIMESTAMP WITH TIME ZONE '2023-12-12T13:00:00Z',1,1,2);
+INSERT INTO tb_topic(title, body, moment,author_id,offer_id,lesson_id) VALUES ('Título - Tópico 6','Corpo do tópico 6',  TIMESTAMP WITH TIME ZONE '2023-12-12T13:00:00Z',2,1,3);
+-- Usuários que curtiram os tópicos
+INSERT INTO tb_topic_likes(topic_id,user_id)VALUES (1,2);
+INSERT INTO tb_topic_likes(topic_id,user_id)VALUES (2,1);
+INSERT INTO tb_topic_likes(topic_id,user_id)VALUES (1,3);
+

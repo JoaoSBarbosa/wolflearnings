@@ -27,6 +27,7 @@ public class User implements Serializable {
 
    @OneToMany(mappedBy = "user")
     private List<Notification> notifications = new ArrayList<>();
+
     public User(){}
 
     public User(long id, String name, String email, String password, Set<Role> roles) {
