@@ -1,6 +1,8 @@
 package br.com.joaosbarbosa.wolflearnings.controller.exception;
 import br.com.joaosbarbosa.wolflearnings.services.exceptions.DataBaseException;
+import br.com.joaosbarbosa.wolflearnings.services.exceptions.ForbiddenException;
 import br.com.joaosbarbosa.wolflearnings.services.exceptions.ResourceNotFoundException;
+import br.com.joaosbarbosa.wolflearnings.services.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -56,5 +58,18 @@ public class ResourceExceptionsHandler {
             err.addError(f.getField(), f.getDefaultMessage());
         }
         return ResponseEntity.status(status).body(err);
+    }
+
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<OAuthCustomError> forbidden(ForbiddenException e, HttpServletRequest request){
+        OAuthCustomError oAuthCustomError = new OAuthCustomError("Proibido!", e.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(oAuthCustomError);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<OAuthCustomError> unauthorized(UnauthorizedException e, HttpServletRequest request){
+        OAuthCustomError unauthorizedError = new OAuthCustomError("Não autorizado!", e.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(unauthorizedError);
     }
 }
