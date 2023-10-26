@@ -76,12 +76,11 @@
 
 
 
-
-INSERT INTO tb_user(name,email,password) VALUES ('Don Juan','contato@domjuan.com',123456);
-INSERT INTO tb_user(name,email,password) VALUES ('João Barbosa','contato@jb.com',123456);
-INSERT INTO tb_user(name,email,password) VALUES ('Maria','contato@maria.com',123456);
-INSERT INTO tb_user(name,email,password) VALUES ('Carlos','contato@carlos.com',123456);
-
+INSERT INTO tb_user(name,email,password) VALUES ('Don Juan','contato@domjuan.com','$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user (name, email, password) VALUES ('João Barbosa', 'contato.jb@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user(name,email,password) VALUES ('Maria','contato@maria.com','$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user(name,email,password) VALUES ('Carlos','contato@carlos.com','$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user(name,email,password) VALUES ('Admin','admin@admin.com','$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
 
 INSERT INTO tb_role (authority) VALUES ('ROLE_STUDENT');
 INSERT INTO tb_role (authority) VALUES ('ROLE_INSTRUCTOR');
