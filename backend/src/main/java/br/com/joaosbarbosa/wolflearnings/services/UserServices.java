@@ -28,6 +28,7 @@ public class UserServices implements UserDetailsService {
     @Autowired private UserRepository repository;
     @Autowired private RoleRepository roleRepository;
 
+    @Autowired private AuthService authService;
     public UserDTO insert(UserDTO dto) {
         User entity = new User();
 
@@ -40,12 +41,19 @@ public class UserServices implements UserDetailsService {
 
     @Transactional(readOnly = true)
     public UserDTO findById(Long id){
+        // Verifica se o usuário autenticado tem permissão para acessar o perfil do usuário com o ID fornecido.
+        authService.validateSelfOrAdmin(id);
 
+        // Busca o usuário no repositório pelo ID.
         Optional<User> userOptional = repository.findById(id);
 
+        // Se o usuário não for encontrado, lança uma exceção ResourceNotFoundException.
         User entity = userOptional.orElseThrow(()-> new ResourceNotFoundException("Não localizado através do id "+id));
+
+        // Retorna um DTO que representa o usuário encontrado.
         return new UserDTO(entity);
     }
+
 
     @Transactional(readOnly = true)
     public Page<UserDTO> findPage(Pageable pageable){

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class User implements UserDetails,Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String name;
     private String email;
     private String password;
@@ -32,18 +32,18 @@ public class User implements UserDetails,Serializable {
 
     public User(){}
 
-    public User(long id, String name, String email, String password) {
+    public User(Long id, String name, String email, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -126,5 +126,23 @@ public class User implements UserDetails,Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
+    }
+
+    /**
+     * Verifica se há uma função específica na lista de funções do usuário.
+     *
+     * @param roleName O nome da função a ser verificada.
+     * @return true se a função está presente, caso contrário, retorna false.
+     */
+    public Boolean hasHole(String roleName){
+
+        // para cada role dentro da lista roles...
+        for(Role role: roles){
+            // ...compara o nome da função com o parâmetro recebido.
+            if(role.getAuthority().equals(roleName)){
+                return true; // Retorna verdadeiro se a função é encontrada.
+            }
+        }
+        return false; // Retorna falso se a função não é encontrada.
     }
 }

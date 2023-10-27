@@ -26,7 +26,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     // Define rotas públicas que não precisam de autenticação
     private static final String[] PUBLIC = {"/oauth/token","/h2-console/**"};
     // Define rotas acessíveis para usuários com perfil OPERATOR ou ADMIN
-    private static final String[] OPERATOR_OR_ADMIN = {"/categorias/**", "/produtos/**"};
+    private static final String[] INSTRUCTOR_OR_ADMIN = {"/categorias/**", "/users/**","/produtos/**"};
     // Define rotas acessíveis apenas para usuários com perfil ADMIN
     private static final String[] ADMIN = {"/users/**"};
 
@@ -46,8 +46,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         }
         http.authorizeRequests()
                 .antMatchers(PUBLIC).permitAll()//Para rotas PUBLIC, está liberado acessos
-                .antMatchers(HttpMethod.GET, OPERATOR_OR_ADMIN).permitAll()// Permite acesso liberado de leitura(GET)
-                .antMatchers(OPERATOR_OR_ADMIN).hasAnyRole("OPERATOR", "ADMIN")// Permite acesso apenas para OPERATOR e ADMIN
+                .antMatchers(HttpMethod.GET, INSTRUCTOR_OR_ADMIN).permitAll()// Permite acesso liberado de leitura(GET)
+                .antMatchers(INSTRUCTOR_OR_ADMIN).hasAnyRole("INSTRUCTOR", "ADMIN")// Permite acesso apenas para OPERATOR e ADMIN
                 .antMatchers(ADMIN).hasAnyRole("ADMIN")// Permite acesso apenas para ADMIN
                 .anyRequest().authenticated();// Todas as outras rotas requerem autenticação(LOGIN)
     }
