@@ -23,7 +23,6 @@ public class UserController {
         UserDTO newDto = services.insert(dto);
 
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newDto.getId()).toUri();
-
         return ResponseEntity.created(uri).body(newDto);
     }
 
