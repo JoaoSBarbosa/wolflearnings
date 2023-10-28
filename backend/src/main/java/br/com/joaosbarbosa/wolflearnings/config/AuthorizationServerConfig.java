@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -40,6 +41,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
     }
 
+    @Autowired UserDetailsService userDetailsService;
+
     // Configura as informações do cliente (nome, senha, escopos, tipo de concessão, etc.)
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -47,8 +50,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .withClient(clientId)// Nome da aplicação que solicitará acesso
                 .secret(passwordEncoder.encode(clientSecret))// Senha para acessar a aplicação
                 .scopes("read", "write") // Escopos de acesso (leitura, escrita, etc.)
-                .authorizedGrantTypes("password") // Padrão de concessão de token
-                .accessTokenValiditySeconds(jwtDuration); // Tempo de validade do token (24 horas)
+                .authorizedGrantTypes("password","refresh_token") // Padrão de concessão de token
+                .accessTokenValiditySeconds(jwtDuration) // Tempo de validade do token (24 horas)
+                .refreshTokenValiditySeconds(jwtDuration); // Tempo de validade do refreshToken (24 horas)
     }
 
     // Configura os endpoints para autenticação e o formato do token
@@ -61,6 +65,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints.authenticationManager(authenticationManager) // Gerenciador de autenticação
                 .tokenStore(tokenStore) // Armazenamento do token
                 .accessTokenConverter(accessTokenConverter) // Conversor de token
-                .tokenEnhancer(chain);
+                .tokenEnhancer(chain)
+                .userDetailsService(userDetailsService);
     }
 }
