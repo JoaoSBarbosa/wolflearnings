@@ -29,8 +29,9 @@ public class NotificationService {
 
     @Transactional(readOnly = true)
     public Page<NotificationDTO> notificationsForCurrentUser(Pageable pageable) {
+        // se não tiver usuario logado, dará uma exceção e não vai prosseguir
         User user = authService.authenticated();
-        Page<Notification> notifications = notificationRepository.findAll(pageable);
+        Page<Notification> notifications = notificationRepository.findByUser(user,pageable);
 
         return notifications.map((notification -> new NotificationDTO(notification)));
     }

@@ -26,7 +26,7 @@ public class NotificationController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<NotificationDTO>> findAllPages(Pageable pageable){
+    public ResponseEntity<Page<NotificationDTO>> notificationsForCurrentUser(Pageable pageable){
         Page<NotificationDTO> notificationDTOPage = notificationService.notificationsForCurrentUser(pageable);
 
         return ResponseEntity.ok().body(notificationDTOPage);
